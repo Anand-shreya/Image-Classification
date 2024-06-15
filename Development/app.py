@@ -12,7 +12,7 @@ import os
 
 
 try:
-    model = load_model('C:/Users/shreya anand/Dropbox/PC/Desktop/projects/Image Classifier/models/classification_real_ai1.h5')
+    model = load_model('../models/classification_real_ai1.h5')
 except:
     print("Problem in loading model!!!")
 
