@@ -57,8 +57,8 @@ On macOS
 source venv/bin/activate
 ```
 # Made with 💙 by :
-* [Rajeshwari Rajiv Jadhav](@https://github.com/Rajeshwari-Jadhav)
-* [Pranathi Nidadavolu](@https://github.com/Pranathi2611)
-* [Rajeev Verma](@https://github.com/v-rajeev)
-* [Anurag Pandey](@https://github.com/anuragpandey991)
-* [Shreya Anand](@https://github.com/Anand-shreya)
+* [@Rajeshwari Rajiv Jadhav](https://github.com/Rajeshwari-Jadhav)
+* [@Pranathi Nidadavolu](https://github.com/Pranathi2611)
+* [@Rajeev Verma](https://github.com/v-rajeev)
+* [@Anurag Pandey](https://github.com/anuragpandey991)
+* [@Shreya Anand](https://github.com/Anand-shreya)
