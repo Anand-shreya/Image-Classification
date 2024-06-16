@@ -12,7 +12,7 @@ import os
 
 
 try:
-    model = load_model('https://drive.google.com/file/d/1-3mXPXk7huIyITgMzxqfZukNUgFFkElM/view?usp=sharing')
+    model = load_model('../models/model1/Model1.h5')
 except:
     print("Problem in loading model!!!")
 
