@@ -1,4 +1,3 @@
-import bs4
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -24,38 +23,117 @@ driver = webdriver.Chrome(service=service)
 
 
 #----------------For AI generated images------------------------
-AI_images_folder = 'AI generated'
-if not os.path.isdir(AI_images_folder):
-    os.makedirs(AI_images_folder)
+# AI_images_folder = 'AI generated'
+# if not os.path.isdir(AI_images_folder):
+#     os.makedirs(AI_images_folder)
 
 
-img = 1
-for page in range (1,300):
+# img = 1
+# for page in range (1,300):
 
-    search_URL = "https://pixabay.com/images/search/ai/?pagi=%s" %(page)
-    driver.get(search_URL)
+#     search_URL = "https://pixabay.com/images/search/ai/?pagi=%s" %(page)
+#     driver.get(search_URL)
 
-    # print("woking on page: ", page)
-    # print(img)
+#     # print("woking on page: ", page)
+#     # print(img)
 
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight/2);")
-    time.sleep(10)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight-50);")
-    time.sleep(5)
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight/2);")
+#     time.sleep(10)
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight-50);")
+#     time.sleep(5)
 
-    #---------------Scrolling all the way up-------------------
-    driver.execute_script("window.scrollTo(0, 0);")  
-    ImageContainers = driver.find_elements(By.XPATH, '//*[@class="container--MwyXl"]/a/img')
+#     #---------------Scrolling all the way up-------------------
+#     driver.execute_script("window.scrollTo(0, 0);")  
+#     ImageContainers = driver.find_elements(By.XPATH, '//*[@class="container--MwyXl"]/a/img')
     
-    for image in ImageContainers:
+#     for image in ImageContainers:
 
-        imageURL = image.get_attribute('src')
+#         imageURL = image.get_attribute('src')
 
-        if imageURL == 'https://pixabay.com/static/img/blank.gif': 
+#         if imageURL == 'https://pixabay.com/static/img/blank.gif': 
+#             continue
+
+#         try:
+#             download_image(imageURL, AI_images_folder, "AI_", img)
+#             img += 1
+#         except:
+#             print("Couldn't download an image %s, continuing downloading the next one"%(img))
+
+
+
+
+
+
+
+
+# -------------------for Real images-----------------------
+
+Real_images_folder = 'Real'
+if not os.path.isdir(Real_images_folder):
+    os.makedirs(Real_images_folder)
+
+
+# search_URL = "https://www.pexels.com/search/random%20people/"
+# search_URL = "https://www.pexels.com/search/scenery/"
+# search_URL = "https://www.pexels.com/search/animal/"
+search_URL = "https://www.pexels.com/search/race/"
+driver.get(search_URL)
+
+i = 1
+img = 8533
+
+
+while img<=10000:
+
+    #-------------for scrolling to load images------------
+    if i%20 == 0:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1200);")  
+        time.sleep(1)
+
+    for j in range(1,4):
+
+        xpath = '//*[@id="-"]/div[1]/div/div[%s]/div[%s]/article/a/img'%(j,i)
+
+        try:
+            container = driver.find_element(By.XPATH, xpath) 
+        except:
+            print("1: Couldn't find an image %s, continuing downloading the next one"%(i))
+            i+=1
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1500);")  
+            time.sleep(5)
             continue
 
         try:
-            download_image(imageURL, AI_images_folder, "AI_", img)
+            imageURL = container.get_attribute('src')
+            download_image(imageURL, Real_images_folder, "Real_", img)
             img += 1
         except:
-            print("Couldn't download an image %s, continuing downloading the next one"%(img))
+            print("2: Couldn't download an image %s, continuing downloading the next one"%(i))
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight-2000);")  
+            # time.sleep(5)
+    i += 1
+
+
+
+# search_URL = "https://www.freepik.com/search?format=search&last_filter=query&last_value=raw+photo&query=raw+photo#uuid=c5e6eab0-6441-4e52-9724-c7ab1cfb12cf"
+# driver.get(search_URL)
+# img_number = 368
+# for page in range(1,70):
+
+#     print("working on page ", page)
+#     print("starting with image", img_number)
+
+#     # -----Container for all the images in that page--------
+#     imageContainer = driver.find_elements(By.XPATH, '//*[@class="_1286nb19f _1286nb11p9"]/a') 
+
+#     for image in imageContainer:
+#         imageURL = image.get_attribute('href')
+#         try:
+#             download_image(imageURL, Real_images_folder, "Real_", img_number)
+#             img_number += 1
+#         except:
+#             print("Couldn't download an image %s, continuing downloading the next one"%(img_number))
+
+#     # -------- XPath of next button: //*[@class="pagination__next button floatl pd-y-none-i"] -----------
+#     nxt_Button = driver.find_element(By.XPATH, ' //*[@id="__next"]/div[4]/div[3]/div/div[4]/div[1]/a[2]') 
+#     nxt_Button.click()   
