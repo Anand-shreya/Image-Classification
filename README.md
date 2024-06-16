@@ -32,9 +32,11 @@ This project aims to distinguish between AI-generated and real images using a Co
     streamlit run app_model1.py
     ```
 ## Useful links
-1. Dataset 1 (cat's images) used in training of model1: https://drive.google.com/drive/folders/1DdK5twcPrub0LTmiPbSJcE_8MTh4LerO?usp=sharing
+1. Dataset 1 (cat's images) used in training of model1:
+https://drive.google.com/drive/folders/1DdK5twcPrub0LTmiPbSJcE_8MTh4LerO?usp=sharing
 
-2. Dataset 2 (General images): https://drive.google.com/drive/folders/1prn0DgGpEmvf6nYz6JxjcWB6UgCaGwRY?usp=sharing
+2. Dataset 2 (General images): 
+https://drive.google.com/drive/folders/1prn0DgGpEmvf6nYz6JxjcWB6UgCaGwRY?usp=sharing
 
 
 ## NOTE
