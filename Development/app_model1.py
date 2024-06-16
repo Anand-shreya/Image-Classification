@@ -12,7 +12,7 @@ import os
 
 
 try:
-    model = load_model('../models/classification_real_ai1.h5')
+    model = load_model('https://drive.google.com/file/d/1-3mXPXk7huIyITgMzxqfZukNUgFFkElM/view?usp=sharing')
 except:
     print("Problem in loading model!!!")
 
