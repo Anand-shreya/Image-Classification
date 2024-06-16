@@ -62,8 +62,3 @@ source venv/bin/activate
 * [Rajeev Verma](@https://github.com/v-rajeev)
 * [Anurag Pandey](@https://github.com/anuragpandey991)
 * [Shreya Anand](@https://github.com/Anand-shreya)
-
-## Authors
-
-- [@octokatherine](https://www.github.com/octokatherine)
-
